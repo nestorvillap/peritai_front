@@ -134,6 +134,20 @@ const Form = () => {
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="font-bold">Sube las fotos de tu coche:</h2>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label>Frontal:</label>
+                <input
+                  type="file"
+                  name="car-image-frontal"
+                  accept="image/*"
+                  defaultValue={"Frontal"}
+                  className="border-2 px-4 py-2 rounded-sm"
+                  onChange={handleChange}
+                  required
+                />
+
             <div className="grid grid-cols gap-4">
               <div className="relative w-full group" onClick={handleClick}>
                 <div className="grid grid-cols2 gap-4">
@@ -149,6 +163,7 @@ const Form = () => {
                     />
                   </div>
                 </div>
+
               </div>
               <div>
                 <label>Trasera: </label>
