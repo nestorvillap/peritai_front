@@ -1,4 +1,32 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+
+export const prerender = false;
 ---
-<h1>Fail</h1>
+
+<Layout>
+    <Header />
+    <div class="success-container">
+        <h1>Tu vehículo pasara por un manual de revisión.</h1>
+    </div>
+</Layout>
+
+<style>
+    .success-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 95vh;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+
+    .success-container h1 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
+</style>
