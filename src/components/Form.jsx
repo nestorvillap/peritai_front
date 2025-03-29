@@ -134,66 +134,52 @@ const Form = () => {
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="font-bold">Sube las fotos de tu coche:</h2>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label>Frontal:</label>
-                <input
-                  type="file"
-                  name="car-image-frontal"
-                  accept="image/*"
-                  defaultValue={"Frontal"}
-                  className="border-2 px-4 py-2 rounded-sm"
-                  onChange={handleChange}
-                  required
-                />
-
             <div className="grid grid-cols gap-4">
               <div className="relative w-full group" onClick={handleClick}>
                 <div className="grid grid-cols2 gap-4">
-                  <div>
+                  <div className="flex items-center justify-between ">
                     <label>Frontal: </label>
                     <input
                       type="file"
                       name="car-image-parte trasera"
                       accept="image/*"
-                      className="border-2 px-4 py-2 rounded-sm"
+                      className="border-2 px-4 py-2 rounded-sm cursor-pointer hover:scale-105 transition-all"
                       onChange={handleChange}
                       required
+
                     />
                   </div>
                 </div>
-
               </div>
-              <div>
+              <div className="flex items-center justify-between">
                 <label>Trasera: </label>
                 <input
                   type="file"
                   name="car-image-parte trasera"
                   accept="image/*"
-                  className="border-2 px-4 py-2 rounded-sm"
+                  className="border-2 px-4 py-2 rounded-sm cursor-pointer hover:scale-105 transition-all"
                   onChange={handleChange}
                   required
                 />
               </div>
-              <div>
+              <div className="flex items-center justify-between gap-4">
                 <label>Lateral Izquierdo: </label>
                 <input
                   type="file"
                   name="car-image-lateral izquierdo"
                   accept="image/*"
-                  className="border-2 px-4 py-2 rounded-sm"
+                  className="border-2 px-4 py-2 rounded-sm cursor-pointer hover:scale-105 transition-all"
                   onChange={handleChange}
                   required
                 />
               </div>
-              <div>
+              <div className="flex items-center justify-between">
                 <label>Lateral Derecho: </label>
                 <input
                   type="file"
                   name="car-image-lateral derecho"
                   accept="image/*"
-                  className="border-2 px-4 py-2 rounded-sm"
+                  className="border-2 px-4 py-2 rounded-sm cursor-pointer hover:scale-105 transition-all"
                   onChange={handleChange}
                   required
                 />
