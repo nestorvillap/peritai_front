@@ -95,6 +95,7 @@ const Form = () => {
       setSubmitStatus({ success: false, message: 'Error al enviar el formulario: ' + error.message });
     } finally {
       setIsSubmitting(false);
+      window.location.href = '/user';
     }
   };
 
@@ -141,7 +142,7 @@ const Form = () => {
                     <label>Frontal: </label>
                     <input
                       type="file"
-                      name="car-image-parte trasera"
+                      name="car-image-frontal"
                       accept="image/*"
                       className="border-2 px-4 py-2 rounded-sm cursor-pointer hover:scale-105 transition-all"
                       onChange={handleChange}
