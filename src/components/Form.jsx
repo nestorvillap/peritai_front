@@ -1,4 +1,7 @@
-import { useState } from 'preact/hooks';
+import { useState, useRef } from 'preact/hooks';
+
+
+
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +15,7 @@ const Form = () => {
       lateral_derecho: null
     }
   });
+  const fileInputRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -34,17 +38,22 @@ const Form = () => {
     }
   };
 
+  const handleClick = () => {
+    fileInputRef.current?.click();
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('plate', formData.plate);
       formDataToSend.append('carModel', formData.carModel);
       formDataToSend.append('year', formData.year);
-      
+
       // Adjuntar cada imagen con su tipo
       Object.entries(formData.carImages).forEach(([type, file]) => {
         if (file) {
@@ -68,7 +77,7 @@ const Form = () => {
       }
 
       setSubmitStatus({ success: true, message: 'Formulario enviado correctamente' });
-      
+
       setFormData({
         plate: '',
         carModel: '',
@@ -80,7 +89,7 @@ const Form = () => {
           lateral_derecho: null
         }
       });
-      
+
     } catch (error) {
       console.error('Error en el envío:', error);
       setSubmitStatus({ success: false, message: 'Error al enviar el formulario: ' + error.message });
@@ -94,7 +103,7 @@ const Form = () => {
       <div className="flex-col flex">
         <div className="flex justify-between gap-6">
           <div className="flex flex-col gap-4">
-          <h2 className="font-bold">Rellana los datos de tu coche:</h2>
+            <h2 className="font-bold">Rellana los datos de tu coche:</h2>
             <input
               type="text"
               name="plate"
@@ -125,20 +134,24 @@ const Form = () => {
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="font-bold">Sube las fotos de tu coche:</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label>Frontal:</label>
-                <input
-                  type="file"
-                  name="car-image-frontal"
-                  accept="image/*"
-                  className="border-2 px-4 py-2 rounded-sm"
-                  onChange={handleChange}
-                  required
-                />
+            <div className="grid grid-cols gap-4">
+              <div className="relative w-full group" onClick={handleClick}>
+                <div className="grid grid-cols2 gap-4">
+                  <div>
+                    <label>Frontal: </label>
+                    <input
+                      type="file"
+                      name="car-image-parte trasera"
+                      accept="image/*"
+                      className="border-2 px-4 py-2 rounded-sm"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
               </div>
               <div>
-                <label>Trasera:</label>
+                <label>Trasera: </label>
                 <input
                   type="file"
                   name="car-image-parte trasera"
@@ -149,7 +162,7 @@ const Form = () => {
                 />
               </div>
               <div>
-                <label>Lateral Izquierdo:</label>
+                <label>Lateral Izquierdo: </label>
                 <input
                   type="file"
                   name="car-image-lateral izquierdo"
@@ -160,7 +173,7 @@ const Form = () => {
                 />
               </div>
               <div>
-                <label>Lateral Derecho:</label>
+                <label>Lateral Derecho: </label>
                 <input
                   type="file"
                   name="car-image-lateral derecho"
@@ -174,13 +187,13 @@ const Form = () => {
           </div>
         </div>
       </div>
-      
+
       {submitStatus && (
         <div className={`mt-4 p-3 rounded ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
           {submitStatus.message}
         </div>
       )}
-      
+
       <button
         type="submit"
         className={`w-56 border-2 px-4 py-2 rounded-xl cursor-pointer hover:bg-black hover:text-white mt-5 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
