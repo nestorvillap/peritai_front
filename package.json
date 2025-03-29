@@ -9,6 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.5"
+    "@astrojs/preact": "^4.0.7",
+    "@aws-sdk/client-s3": "^3.777.0",
+    "@fontsource-variable/roboto": "^5.2.5",
+    "@tabler/icons-preact": "^3.31.0",
+    "@tailwindcss/vite": "^4.0.17",
+    "astro": "^5.5.5",
+    "dotenv": "^16.4.7",
+    "preact": "^10.26.4",
+    "tailwindcss": "^4.0.17"
   }
 }
