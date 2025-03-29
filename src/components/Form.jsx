@@ -132,6 +132,7 @@ const Form = () => {
                   type="file"
                   name="car-image-frontal"
                   accept="image/*"
+                  defaultValue={"Frontal"}
                   className="border-2 px-4 py-2 rounded-sm"
                   onChange={handleChange}
                   required
