@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Form from '../components/Form.jsx';
+import Form from '../components/form/Form.jsx';
 import Hero from '../components/Hero.astro';
 
 export const prerender = false;
@@ -9,8 +9,8 @@ export const prerender = false;
 
 <Layout>
 	<Header/>
-	<Hero/>
+	<Hero>
+		Detecta daños en tu coche al instante, sin necesidad de un perito, y asegura tu vehículo a todo riesgo con confianza.
+	</Hero>
 	<Form client:load/>
-	{/* Formulario */}
-	{/* Footer */}
 </Layout>

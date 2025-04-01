@@ -1,32 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
 
 export const prerender = false;
 ---
 
 <Layout>
     <Header />
-    <div class="success-container">
-        <h1>Tu vehículo pasara por un manual de revisión.</h1>
-    </div>
+    <Hero>Un perito se pondrá en contacto contigo en los próximos días</Hero>
 </Layout>
-
-<style>
-    .success-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 95vh;
-        margin: 0;
-        background-color: #f4f4f4;
-    }
-
-    .success-container h1 {
-        font-size: 2rem;
-        color: #2c3e50;
-        margin-bottom: 20px;
-    }
-</style>

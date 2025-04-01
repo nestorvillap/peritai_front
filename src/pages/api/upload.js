@@ -1,5 +1,3 @@
-
-
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import dotenv from 'dotenv';
 
@@ -39,7 +37,7 @@ export async function POST({ request }) {
 
       const timestamp = Date.now();
       const extension = file.name.split('.').pop();
-      const fileKey = `cars/${plate.replace(/\s+/g, '-')}-${type}-${timestamp}.${extension}`;
+      const fileKey = `cars/${plate.replace(/\s+/g, '-')}-${type.replace(/\s+/g, '-')}-${timestamp}.${extension}`;
       
       const buffer = await file.arrayBuffer();
 
